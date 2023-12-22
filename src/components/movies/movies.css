@@ -1,0 +1,9 @@
+.movies_container {
+  margin-top: 2rem;
+  padding-bottom: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  row-gap: 4rem;
+  align-items: center;
+}

@@ -1,0 +1,85 @@
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.login_button {
+  background: var(--col-imdb);
+  color: var(--col-dark);
+}
+
+.login_button:hover {
+  background: #f5c518db;
+  color: var(--col-dark);
+}
+
+.section {
+  margin-top: 5rem;
+}
+
+/* xs */
+@media (min-width: 475px) {
+  .container {
+    max-width: 475px;
+  }
+}
+
+/* sm */
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+/* med */
+@media (min-width: 768px) {
+  .container {
+    width: 90%;
+    max-width: 768px;
+  }
+}
+
+/* large */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+  .section {
+    margin-top: 10rem;
+  }
+}
+
+/* xl */
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+/* xxl */
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
+}
+
+/* xs */
+/* @media (min-width: 475px) {}
+
+/* sm */
+/* @media (min-width: 640px) {} */
+
+/* med */
+/* @media (min-width: 768px) {} */
+
+/* large */
+/* @media (min-width: 1024px) {} */
+
+/* xl */
+/* @media (min-width: 1280px) {} */
+
+/* xxl */
+/* @media (min-width: 1536px) {}  */

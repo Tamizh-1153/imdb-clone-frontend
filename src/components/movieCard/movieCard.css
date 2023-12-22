@@ -1,0 +1,33 @@
+.movie_card {
+  display: flex;
+  width: 15rem;
+  height: 22.5rem;
+  flex-direction: column;
+  justify-content: start;
+  align-items: flex-start;
+  /* border-radius: 10px; */
+  max-width: max-content;
+  background-color: rgba(183, 178, 178, 0.156);
+  transition: all .4s ease-in-out;
+}
+
+.movie_card:hover {
+    transform: scale(1.1);
+}
+
+.movie_card > img {
+  width: 15rem;
+  height: 19rem;
+  /* border-radius: 10px; */
+  object-fit: cover;
+}
+
+.movie_card > p {
+    width: 100%;
+  margin-bottom: 0.5rem !important;
+  text-align: center;
+  padding: 0 1rem;
+  padding-top: 1rem;
+  text-wrap: wrap;
+  font-size: var(--size-lg);
+}
