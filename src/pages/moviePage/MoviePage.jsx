@@ -13,23 +13,11 @@ import { deleteMovie } from "../../api/posts"
 import { toast } from "react-toastify"
 
 const MoviePage = () => {
-  const { data, isLoading, isError } = useGetAllMovies()
+  // const { data, isLoading, isError } = useGetAllMovies()
   const [open, setOpen] = useState(false)
-  useGetAllActors()
-  useGetAllProducers()
-  const { user, actors, producers } = useSelector((store) => store.user)
+  const { user,movies:data, actors, producers } = useSelector((store) => store.user)
   const refresh = useNavigate()
   const { id } = useParams()
-
-  if (isLoading) {
-    return (
-      <Container>
-        <Center h={400}>
-          <Loader size="lg" type="dots" />
-        </Center>
-      </Container>
-    )
-  }
 
   const movie = data?.find((movie) => movie._id === id)
   const toYearFormat = new Date(movie?.yearOfRelease)
@@ -140,7 +128,7 @@ const MoviePage = () => {
           <strong style={{ marginRight: "4rem", fontSize: "1.2rem" }}>
             Stars
           </strong>{" "}
-          {actorNames.map((actorName, i) => (
+          {actorNames?.map((actorName, i) => (
             <span
               key={i}
               className=""

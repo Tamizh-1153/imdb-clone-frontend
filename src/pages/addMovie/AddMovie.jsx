@@ -16,9 +16,7 @@ import { useForm } from "@mantine/form"
 import React, { useState } from "react"
 import AddActor from "../../components/addActor/AddActor"
 import AddProducer from "../../components/addProducer/AddProducer"
-import useGetAllActors from "../../hooks/useGetAllActors"
 import { useSelector } from "react-redux"
-import useGetAllProducers from "../../hooks/useGetAllProducers"
 import { addMovieToServer, validateParagraph, validateString } from "../../api/posts"
 import UploadPoster from "../../components/uploadPoster/UploadPoster"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
@@ -26,8 +24,8 @@ import { toast } from "react-toastify"
 import { useNavigate } from "react-router-dom"
 
 const AddMovie = () => {
-  useGetAllActors()
-  useGetAllProducers()
+  // useGetAllActors()
+  // useGetAllProducers()
   const { actors, producers } = useSelector((store) => store.user)
   const [actorOpen, setActorOpen] = useState(false)
   const [producerOpen, setProducerOpen] = useState(false)

@@ -16,10 +16,10 @@ import useGetAllProducers from "./hooks/useGetAllProducers"
 import useUserDetails from "./hooks/useUserDetails"
 
 function App() {
-  // useGetAllActors()
-  // useGetAllMovies()
-  // useGetAllProducers()
-  // useUserDetails()
+  useGetAllActors()
+  useGetAllMovies()
+  useGetAllProducers()
+  useUserDetails()
   return (
     <>
       <BrowserRouter>
