@@ -17,12 +17,12 @@ import {
   validateParagraph,
   validateString,
 } from "../../api/posts"
-import { useMutation } from "@tanstack/react-query"
+import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { toast } from "react-toastify"
 
 const AddActor = ({ actorOpen, setActorOpen }) => {
 
-
+const queryClient = useQueryClient()
   const form = useForm({
     initialValues: {
       name: "",
@@ -46,6 +46,7 @@ const AddActor = ({ actorOpen, setActorOpen }) => {
     onSuccess: () => {
       toast.success("Actor added successfully")
       form.reset()
+      queryClient.invalidateQueries({ queryKey: ["allActors"] })
       setActorOpen(false)
     },
   })

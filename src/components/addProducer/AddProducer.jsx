@@ -12,11 +12,12 @@ import { DateInput } from "@mantine/dates"
 import { useForm } from "@mantine/form"
 import { addProducerToServer, validateGender, validateParagraph, validateString } from "../../api/posts"
 import { useState } from "react"
-import { useMutation } from "@tanstack/react-query"
+import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { toast } from "react-toastify"
 
 const AddProducer = ({ producerOpen, setProducerOpen }) => {
 
+  const queryClient = useQueryClient()
   const form = useForm({
     initialValues: {
       name: "",
@@ -40,6 +41,7 @@ const AddProducer = ({ producerOpen, setProducerOpen }) => {
     onSuccess:()=>{
         toast.success('Producer added successfully')
         form.reset()
+        queryClient.invalidateQueries({ queryKey: ["allProducers"] })
         setProducerOpen(false)
     }
   })
