@@ -21,8 +21,9 @@ import { useSelector } from "react-redux"
 import useGetAllProducers from "../../hooks/useGetAllProducers"
 import { addMovieToServer, validateParagraph, validateString } from "../../api/posts"
 import UploadPoster from "../../components/uploadPoster/UploadPoster"
-import { useMutation } from "@tanstack/react-query"
+import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { toast } from "react-toastify"
+import { useNavigate } from "react-router-dom"
 
 const AddMovie = () => {
   useGetAllActors()
@@ -31,12 +32,15 @@ const AddMovie = () => {
   const [actorOpen, setActorOpen] = useState(false)
   const [producerOpen, setProducerOpen] = useState(false)
   const [imageURL, setImageURL] = useState("")
+  const refresh = useNavigate()
+  const queryClient = useQueryClient()
 
   const form = useForm({
     initialValues: {
       title: "",
       yearOfRelease: "",
       plot: "",
+      trailer:'',
       actor: [],
       producer: "",
     },
@@ -46,16 +50,19 @@ const AddMovie = () => {
       yearOfRelease: (value) => validateString(value),
       plot: (value) => validateParagraph(value),
       producer: (value) => validateString(value),
+      trailer: (value) => validateString(value),
     },
   })
 
-  const { title, yearOfRelease, plot, producer, actor } = form.values
+  const { title, yearOfRelease, plot, producer, actor,trailer } = form.values
 
    const { mutate } = useMutation({
      mutationFn: (movieDetails) => addMovieToServer(movieDetails),
      onSuccess: () => {
        toast.success("Movie added successfully")
        form.reset()
+       queryClient.invalidateQueries({queryKey:['allMovies']})
+       refresh('/')
      },
    })
 
@@ -71,12 +78,12 @@ const AddMovie = () => {
         }
       })
       const producerId =producers.find(item=>item.name==producer)
-      console.log(actorsId);
       let movieDetails = {
         title: title,
         yearOfRelease: yearOfRelease,
         plot: plot,
         poster: imageURL,
+        trailer:trailer,
         actors: actorsId,
         producer: producerId,
       }
@@ -123,6 +130,16 @@ const AddMovie = () => {
         <InputWrapper mt={".7rem"} withAsterisk label="Upload Poster">
           <UploadPoster imageURL={imageURL} setImageURL={setImageURL} />
         </InputWrapper>
+        <InputWrapper
+          mt={".7rem"}
+          withAsterisk
+          label="Trailer (Youtube Embed link only)"
+        >
+          <Input mt={'.3rem'}
+            placeholder="Ex:  youtube.com/embed/mNgwNXKBEW0"
+            {...form.getInputProps("trailer")}
+          />
+        </InputWrapper>
         <InputWrapper mt={".7rem"} withAsterisk label="Actors">
           <Flex>
             <MultiSelect
@@ -134,6 +151,7 @@ const AddMovie = () => {
             />
             <AddActor actorOpen={actorOpen} setActorOpen={setActorOpen} />
             <Button
+              color="gray"
               onClick={() => setActorOpen(true)}
               mx={".4rem"}
               mt={".3rem"}
@@ -156,6 +174,7 @@ const AddMovie = () => {
               setProducerOpen={setProducerOpen}
             />
             <Button
+              color="gray"
               onClick={() => setProducerOpen(true)}
               mx={".4rem"}
               mt={".3rem"}
@@ -165,7 +184,9 @@ const AddMovie = () => {
           </Flex>
         </InputWrapper>
         <Group mt={"1rem"}>
-          <Button type="submit">Add</Button>
+          <button className="btn login_button" type="submit">
+            Add
+          </button>
         </Group>
       </form>
     </Box>

@@ -1,18 +1,18 @@
 .movie_card {
   display: flex;
   width: 15rem;
-  height: 22.5rem;
+  height: 24rem;
   flex-direction: column;
   justify-content: start;
   align-items: flex-start;
   /* border-radius: 10px; */
   max-width: max-content;
   background-color: rgba(183, 178, 178, 0.156);
-  transition: all .4s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
 
 .movie_card:hover {
-    transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .movie_card > img {
@@ -23,7 +23,10 @@
 }
 
 .movie_card > p {
-    width: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 0.5rem !important;
   text-align: center;
   padding: 0 1rem;

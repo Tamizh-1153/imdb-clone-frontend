@@ -62,7 +62,15 @@ export const resetPassword = async ({ id, token, password }) => {
 
 export const addProducerToServer = async (producerDetails) => {
   try {
-    const res = await api.post("/producers/add", { producerDetails })
+    const res = await api.post(
+      "/producers/add",
+      { producerDetails },
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      }
+    )
     return res.data
   } catch (error) {
     console.log(error.message)
@@ -71,8 +79,15 @@ export const addProducerToServer = async (producerDetails) => {
 
 export const addActorToServer = async (actorDetails) => {
   try {
-    const res = await api.post("/actors/add", { actorDetails })
-    console.log(res.data);
+    const res = await api.post(
+      "/actors/add",
+      { actorDetails },
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      }
+    )
     return res.data
   } catch (error) {
     console.log(error.message)
@@ -81,8 +96,32 @@ export const addActorToServer = async (actorDetails) => {
 
 export const addMovieToServer = async(movieDetails) => {
   try {
-    const res = await api.post("/movies/add", { movieDetails })
-    console.log(res.data)
+    const res = await api.post(
+      "/movies/add",
+      { movieDetails },
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      }
+    )
+    return res.data
+  } catch (error) {
+    console.log(error.message)
+  }
+}
+
+export const updateMovieToServer = async (id,movieDetails) => {
+  try {
+    const res = await api.put(
+      `/movies/edit/${id}`,
+      { movieDetails },
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      }
+    )
     return res.data
   } catch (error) {
     console.log(error.message)
@@ -117,12 +156,24 @@ export const getAllProducers = async () => {
 
 export const getAllMovies = async () => {
   try {
-    const response = await api.get("/movies/all", {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
-      },
-    })
+    const response = await api.get("/movies/all")
     return response.data
+  } catch (error) {
+    console.log(error.message)
+  }
+}
+
+export const deleteMovie = async (id) => {
+  try {
+    const res = await api.delete(
+      `/movies/delete/${id}`,
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      }
+    )
+    return res.data
   } catch (error) {
     console.log(error.message)
   }

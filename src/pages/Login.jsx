@@ -15,7 +15,8 @@ const Login = () => {
       localStorage.setItem("token", data.token)
       if (data.user) {
         toast.success(`${data.user.name} logged in`, { position: "top-right" })
-        refresh("/")
+        refresh('/')
+        window.location.reload()
       } else {
         toast.error(data.message)
       }

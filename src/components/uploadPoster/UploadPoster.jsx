@@ -27,6 +27,7 @@ const UploadPoster = ({imageURL,setImageURL}) => {
     <div>
       {!imageURL ? (
         <Button
+          color="gray"
           onClick={() => widgetRef.current?.open()}
           mt={".3rem"}
         >

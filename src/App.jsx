@@ -10,8 +10,16 @@ import Home from "./pages/home/Home"
 import Layout from "./components/layout/Layout"
 import AddMovie from "./pages/addMovie/AddMovie"
 import MoviePage from "./pages/moviePage/MoviePage"
+import useGetAllActors from "./hooks/useGetAllActors"
+import useGetAllMovies from "./hooks/useGetAllMovies"
+import useGetAllProducers from "./hooks/useGetAllProducers"
+import useUserDetails from "./hooks/useUserDetails"
 
 function App() {
+  // useGetAllActors()
+  // useGetAllMovies()
+  // useGetAllProducers()
+  // useUserDetails()
   return (
     <>
       <BrowserRouter>

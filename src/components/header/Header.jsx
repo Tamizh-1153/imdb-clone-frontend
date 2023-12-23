@@ -8,7 +8,7 @@ import AccountMenu from '../accountMenu/AccountMenu'
 const Header = () => {
   useUserDetails()
   const { user } = useSelector((store) => store.user)
-  // console.log(user)
+
 
   const refresh = useNavigate()
 

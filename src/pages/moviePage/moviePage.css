@@ -1,0 +1,23 @@
+.movie_page_title {
+    font-size: 2.8rem; 
+}
+
+.movie_page_year {
+    font-size: 1rem;
+    margin-bottom: .7rem;
+}
+
+.movie_page_poster {
+    width: 20rem;
+    height: 29rem;
+}
+
+.movie_page_plot {
+    width: 60%;
+    margin-top: 2rem;
+    font-size: 1.2rem;
+}
+
+.blue {
+    color: rgb(28, 81, 172);
+}
