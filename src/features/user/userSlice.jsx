@@ -26,11 +26,17 @@ const userSlice = createSlice({
     },
     addMovies: (state,{payload}) => {
       state.movies = payload
-    }
+    },
+    addActor: (state,{payload}) => {
+      state.actors.push(payload)
+    },
+    addProducer: (state,{payload}) => {
+      state.producers.push(payload)
+    },
 
   },
 })
 
-export const { updateUser, removeUser,addActors,addProducers,addMovies } = userSlice.actions
+export const { updateUser, removeUser,addActors,addProducers,addMovies,addActor,addProducer } = userSlice.actions
 
 export default userSlice.reducer

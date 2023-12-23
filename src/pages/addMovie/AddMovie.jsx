@@ -13,7 +13,7 @@ import {
 } from "@mantine/core"
 import { DateInput } from "@mantine/dates"
 import { useForm } from "@mantine/form"
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import AddActor from "../../components/addActor/AddActor"
 import AddProducer from "../../components/addProducer/AddProducer"
 import { useSelector } from "react-redux"

@@ -14,10 +14,14 @@ import { addProducerToServer, validateGender, validateParagraph, validateString 
 import { useState } from "react"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { toast } from "react-toastify"
+import { useDispatch } from "react-redux"
+import { addProducer } from "../../features/user/userSlice"
 
 const AddProducer = ({ producerOpen, setProducerOpen }) => {
 
   const queryClient = useQueryClient()
+  const dispatch = useDispatch()
+
   const form = useForm({
     initialValues: {
       name: "",
@@ -38,9 +42,10 @@ const AddProducer = ({ producerOpen, setProducerOpen }) => {
 
   const {mutate} = useMutation({
     mutationFn: (producerDetails)=> addProducerToServer(producerDetails),
-    onSuccess:()=>{
+    onSuccess:(data)=>{
         toast.success('Producer added successfully')
         form.reset()
+        dispatch(addProducer(data))
         queryClient.invalidateQueries({ queryKey: ["allProducers"] })
         setProducerOpen(false)
     }

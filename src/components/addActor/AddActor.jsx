@@ -19,10 +19,13 @@ import {
 } from "../../api/posts"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { toast } from "react-toastify"
+import { useDispatch } from "react-redux"
+import { addActor } from "../../features/user/userSlice"
 
 const AddActor = ({ actorOpen, setActorOpen }) => {
 
 const queryClient = useQueryClient()
+const dispatch = useDispatch()
   const form = useForm({
     initialValues: {
       name: "",
@@ -43,9 +46,11 @@ const queryClient = useQueryClient()
 
   const { mutate } = useMutation({
     mutationFn: (actorDetails) => addActorToServer(actorDetails),
-    onSuccess: () => {
+    onSuccess: (data) => {
+      console.log(data);
       toast.success("Actor added successfully")
       form.reset()
+      dispatch(addActor(data))
       queryClient.invalidateQueries({ queryKey: ["allActors"] })
       setActorOpen(false)
     },
