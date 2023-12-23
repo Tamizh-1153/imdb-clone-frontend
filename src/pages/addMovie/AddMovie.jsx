@@ -133,7 +133,8 @@ const AddMovie = () => {
           withAsterisk
           label="Trailer (Youtube Embed link only)"
         >
-          <Input mt={'.3rem'}
+          <Input
+            mt={".3rem"}
             placeholder="Ex:  youtube.com/embed/mNgwNXKBEW0"
             {...form.getInputProps("trailer")}
           />
@@ -181,8 +182,8 @@ const AddMovie = () => {
             </Button>
           </Flex>
         </InputWrapper>
-        <Group mt={"1rem"}>
-          <button className="btn login_button" type="submit">
+        <Group  mt={"1rem"}>
+          <button style={{marginBottom:'3rem'}} className="btn login_button" type="submit">
             Add
           </button>
         </Group>
