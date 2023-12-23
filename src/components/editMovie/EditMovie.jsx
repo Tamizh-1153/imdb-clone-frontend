@@ -1,4 +1,4 @@
-import { Button, Group, Input, InputWrapper, Modal, MultiSelect, Select, Textarea } from "@mantine/core"
+import { Button, Container, Group, Input, InputWrapper, Loader, Modal, MultiSelect, Select, Textarea } from "@mantine/core"
 import { useForm } from "@mantine/form"
 import React from "react"
 import { updateMovieToServer, validateParagraph, validateString } from "../../api/posts"
@@ -8,6 +8,18 @@ import { toast } from "react-toastify"
 
 const EditMovie = ({id,producerName,producers,actors, actorNames,movie, open, setOpen }) => {
 
+if(!movie){
+  return (
+    <Container>
+      <Loader
+        style={{ width: "100%", justifyContent: "center" }}
+        color="blue"
+        size="xl"
+        type="dots"
+      />
+    </Container>
+  )
+}
   const queryClient = useQueryClient()
       const form = useForm({
         initialValues: {
@@ -32,7 +44,7 @@ const EditMovie = ({id,producerName,producers,actors, actorNames,movie, open, se
         onSuccess: () => {
           queryClient.invalidateQueries({queryKey:['allMovies']})
           toast.success("Movie updated successfully")
-          form.reset()
+          // form.reset()
           setOpen(false)
         },
       })
