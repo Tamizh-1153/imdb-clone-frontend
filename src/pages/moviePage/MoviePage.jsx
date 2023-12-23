@@ -13,9 +13,9 @@ import { deleteMovie } from "../../api/posts"
 import { toast } from "react-toastify"
 
 const MoviePage = () => {
-  // const { data, isLoading, isError } = useGetAllMovies()
+  const { data, isLoading, isError } = useGetAllMovies()
   const [open, setOpen] = useState(false)
-  const { user,movies:data, actors, producers } = useSelector((store) => store.user)
+  const { user, actors, producers } = useSelector((store) => store.user)
   const refresh = useNavigate()
   const { id } = useParams()
 
