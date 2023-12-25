@@ -3,7 +3,30 @@
   padding-bottom: 2rem;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   row-gap: 4rem;
   align-items: center;
+  
 }
+
+/* xs */
+/* @media (min-width: 475px) {}
+
+/* sm */
+/* @media (min-width: 640px) {} */
+
+/* med */
+@media (min-width: 768px) {
+  .movies_container{
+    justify-content: space-evenly;
+  }
+}
+
+/* large */
+/* @media (min-width: 1024px) {} */
+
+/* xl */
+/* @media (min-width: 1280px) {} */
+
+/* xxl */
+/* @media (min-width: 1536px) {}  */

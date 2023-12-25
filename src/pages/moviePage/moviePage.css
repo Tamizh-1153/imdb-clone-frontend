@@ -11,6 +11,10 @@
     width: 20rem;
     height: 29rem;
 }
+.movie_page_visual{
+    display: flex;
+    justify-content: center;
+}
 
 .movie_page_plot {
     width: 60%;
@@ -21,3 +25,25 @@
 .blue {
     color: rgb(28, 81, 172);
 }
+
+/* xs */
+/* @media (min-width: 475px) {}
+
+/* sm */
+/* @media (min-width: 640px) {} */
+
+/* med */
+/* @media (min-width: 768px) {} */
+
+/* large */
+@media (min-width: 1024px) {
+    .movie_page_visual{
+        justify-content: space-between;
+    }
+}
+
+/* xl */
+/* @media (min-width: 1280px) {} */
+
+/* xxl */
+/* @media (min-width: 1536px) {}  */

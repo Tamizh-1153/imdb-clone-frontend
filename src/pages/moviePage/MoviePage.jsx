@@ -44,7 +44,7 @@ const MoviePage = () => {
   }
 
   return (
-    <div>
+    <div >
       <Flex mt={"2rem"} direction={"column"}>
         <Flex justify={"space-between"}>
           <span className="movie_page_title">{movie?.title}</span>
@@ -107,7 +107,7 @@ const MoviePage = () => {
           ) : null}
         </Flex>
         <span className="movie_page_year">{toYearFormat.getFullYear()}</span>
-        <Flex justify={"space-between"} wrap="wrap">
+        <Flex className="movie_page_visual"  wrap="wrap">
           <img
             className="movie_page_poster"
             src={movie?.poster}

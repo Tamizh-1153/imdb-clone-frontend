@@ -142,6 +142,7 @@ const AddMovie = () => {
         <InputWrapper mt={".7rem"} withAsterisk label="Actors">
           <Flex>
             <MultiSelect
+            searchable
               style={{ width: "50%" }}
               mt={".3rem"}
               placeholder="Select actors"
@@ -162,6 +163,7 @@ const AddMovie = () => {
         <InputWrapper mt={".7rem"} withAsterisk label="Producer">
           <Flex>
             <Select
+            searchable
               style={{ width: "50%" }}
               placeholder="Select producer"
               mt={".3rem"}

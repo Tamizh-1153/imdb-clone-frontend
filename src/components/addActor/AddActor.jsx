@@ -47,7 +47,6 @@ const dispatch = useDispatch()
   const { mutate } = useMutation({
     mutationFn: (actorDetails) => addActorToServer(actorDetails),
     onSuccess: (data) => {
-      console.log(data);
       toast.success("Actor added successfully")
       form.reset()
       dispatch(addActor(data))
