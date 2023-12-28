@@ -1,4 +1,3 @@
-import React from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { useMutation } from "@tanstack/react-query"
 import { resetPassword } from "../api/posts"

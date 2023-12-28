@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import { useState } from "react"
 import { useMutation } from "@tanstack/react-query"
 import { toast } from "react-toastify"
 import { userLogin } from "../api/posts"
@@ -16,7 +16,7 @@ const Login = () => {
       if (data.user) {
         toast.success(`${data.user.name} logged in`, { position: "top-right" })
         refresh('/')
-        window.location.reload()
+        // window.location.reload()
       } else {
         toast.error(data.message)
       }

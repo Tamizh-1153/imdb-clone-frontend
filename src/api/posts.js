@@ -180,8 +180,8 @@ export const deleteMovie = async (id) => {
 }
 
 export const validateString = (value) => {
-  return value?.length < 5 || value === null
-    ? "Must have at least five characters"
+  return value?.length < 3 || value === null
+    ? "Must have at least three characters"
     : null
 }
 

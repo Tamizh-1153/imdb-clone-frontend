@@ -1,10 +1,10 @@
-import React from 'react'
 import useGetAllMovies from '../../hooks/useGetAllMovies'
-import { Container, Loader } from '@mantine/core';
+import useUserDetails from '../../hooks/useUserDetails'
 import Movies from '../../components/movies/Movies';
 
 const Home = () => {
   const {data,isLoading,isError} = useGetAllMovies()
+  useUserDetails()
 
  
 
